@@ -19,6 +19,7 @@ a {
   background-size: cover;
   background-position-x: 20%;
   background-position-y: 20%;
+  animation: introLoad 2s forwards;
   // overflow: hidden;
 }
 
@@ -77,19 +78,24 @@ a {
   &__close {
     float: right;
     margin: 2em;
-    width: 2.5em;
+    width: 1.75em;
+    cursor: pointer;
   }
 }
 
 .main {
   color: white;
   height: 90vh;
+  animation: moveDown 3s ease-in-out forwards;
+  opacity: 0;
 
   &__arrow {
     stroke: white;
     position: absolute;
     bottom: 2em;
     width: 1em;
+    margin-top: 2em;
+    animation: jumpy 1s alternate-reverse infinite;
 
     & > path {
       fill: white;
@@ -124,6 +130,10 @@ a {
   &__text {
     line-height: 1.5rem;
   }
+}
+
+.nav--open {
+  transform: translateX(0%);
 }
 
 // responsiveness for mobile
@@ -242,5 +252,44 @@ a {
   .wrapper {
     width: 1024px;
     margin: 0 auto;
+  }
+}
+
+@keyframes introLoad {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes jumpy {
+  from {
+    transform: translateY(-30px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  60% {
+    transform: translateY(20px);
+  }
+
+  80% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
