@@ -57,13 +57,13 @@ a {
   margin-top: 8em;
 }
 
-.nav__list a {
+.nav__item > a {
   color: black;
   padding: 0.75em 2em;
   display: block;
 }
 
-.nav__list a:hover {
+.nav__item > a:hover {
   background-color: #ebebeb;
 }
 
@@ -117,5 +117,91 @@ a {
 @media screen and (min-width: 640px) {
   body {
     margin: 1.5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav__menu {
+    display: none;
+  }
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    display: flex;
+    margin: 0;
+  }
+  .nav__item > a {
+    color: white;
+    padding: 0.5em 1.5em;
+    font-size: 0.9rem;
+  }
+  .nav__item > a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  .header {
+    align-items: center;
+  }
+  .header__nav {
+    transform: translateX(0);
+    position: unset;
+    display: block;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+  .header__logo__text {
+    color: black;
+  }
+  .header__logo__text > span {
+    color: red;
+  }
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 40em;
+  }
+  .main {
+    color: black;
+    height: auto;
+    width: 40%;
+    margin-bottom: 8em;
+  }
+  .main__arrow {
+    stroke: black;
+    position: unset;
+  }
+  .main__arrow > path {
+    fill: black;
+  }
+  .feature {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3em;
+  }
+  .feature:not(:last-child) {
+    margin-bottom: 5em;
+  }
+  .feature__image {
+    width: 100%;
+  }
+  .feature__content {
+    text-align: right;
+    width: 100%;
+  }
+  .feature.left > .feature__image {
+    order: -99999;
+  }
+  .feature.left > .feature__content {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    width: 1024px;
+    margin: 0 auto;
   }
 }

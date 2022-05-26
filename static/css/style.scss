@@ -59,8 +59,10 @@ a {
     list-style-type: none;
     padding: 0;
     margin-top: 8em;
+  }
 
-    a {
+  &__item {
+    & > a {
       color: black;
       padding: 0.75em 2em;
       display: block;
@@ -128,5 +130,117 @@ a {
 @media screen and (min-width: 640px) {
   body {
     margin: 1.5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    &__menu {
+      display: none;
+    }
+
+    &__close {
+      display: none;
+    }
+
+    &__list {
+      display: flex;
+      margin: 0;
+    }
+
+    &__item {
+      & > a {
+        color: white;
+        padding: 0.5em 1.5em;
+        font-size: 0.9rem;
+
+        &:hover {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .header {
+    align-items: center;
+
+    &__nav {
+      transform: translateX(0);
+      position: unset;
+      display: block;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+    }
+
+    &__logo {
+      &__text {
+        color: black;
+
+        & > span {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 40em;
+  }
+
+  .main {
+    color: black;
+    height: auto;
+    width: 40%;
+    margin-bottom: 8em;
+
+    &__arrow {
+      stroke: black;
+      position: unset;
+
+      & > path {
+        fill: black;
+      }
+    }
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3em;
+
+    &:not(:last-child) {
+      margin-bottom: 5em;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__content {
+      text-align: right;
+      width: 100%;
+    }
+  }
+
+  .feature.left {
+    & > .feature__image {
+      order: -99999;
+    }
+
+    & > .feature__content {
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    width: 1024px;
+    margin: 0 auto;
   }
 }
